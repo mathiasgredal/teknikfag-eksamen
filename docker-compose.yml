@@ -10,8 +10,8 @@ services:
     restart: always
     links:
       - db
-    expose:
-      - $PORT
+    ports:
+      - 3000:$PORT
     environment:
       - DB_HOST=db
       - PORT=$PORT
@@ -19,7 +19,7 @@ services:
     networks:
       - database
   db:
-    build: ./db    
+    image: postgres:13-alpine    
     restart: always
     networks:
       - database
@@ -31,4 +31,5 @@ services:
     expose:
       - 5432
     volumes:
-      - ./db/data:/var/lib/postgresql/data/
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:z
+      - ./db/data:/var/lib/postgresql/data:z

@@ -1,7 +1,3 @@
-CREATE USER postgres WITH PASSWORD 'postgres';
-CREATE DATABASE webshop;
-GRANT ALL PRIVILEGES ON DATABASE postgres TO postgres;
-
 CREATE OR REPLACE FUNCTION random_between(low BIGINT ,high BIGINT) 
    RETURNS BIGINT AS
 $$
@@ -56,6 +52,15 @@ CREATE TABLE IF NOT EXISTS "reviews"(
     PRIMARY KEY (id)
 );
 
+DROP TABLE IF EXISTS "countries";
+CREATE TABLE "countries"(
+    "id" INT GENERATED ALWAYS AS IDENTITY,
+    "country_code" TEXT NOT NULL,
+    "country_name" TEXT NOT NULL,
+    PRIMARY KEY (id)
+);
+
+
 -- Create relations
 ALTER TABLE IF EXISTS
     "products" ADD CONSTRAINT "fk_category" FOREIGN KEY("category") REFERENCES "categories"("id");
@@ -64,13 +69,14 @@ ALTER TABLE IF EXISTS
 ALTER TABLE IF EXISTS
     "users" ADD CONSTRAINT "fk_country" FOREIGN KEY("country") REFERENCES "countries"("id");
 
-DROP TABLE IF EXISTS "countries";
-CREATE TABLE "countries"(
-    "id" INT GENERATED ALWAYS AS IDENTITY,
-    "country_code" TEXT NOT NULL,
-    "country_name" TEXT NOT NULL,
-    PRIMARY KEY (id)
-);
+-- Insert data
+INSERT INTO "categories" ("name") VALUES (E'Toys') ON CONFLICT (id) DO NOTHING;
+INSERT INTO "categories" ("name") VALUES (E'Laptops') ON CONFLICT (id) DO NOTHING;
+INSERT INTO "categories" ("name") VALUES (E'Cars') ON CONFLICT (id) DO NOTHING;
+INSERT INTO "categories" ("name") VALUES (E'Desktops') ON CONFLICT (id) DO NOTHING;
+INSERT INTO "categories" ("name") VALUES (E'Alchohol') ON CONFLICT (id) DO NOTHING;
+INSERT INTO "categories" ("name") VALUES (E'Electronics') ON CONFLICT (id) DO NOTHING;
+INSERT INTO "categories" ("name") VALUES (E'Animals') ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO "countries" ("country_code", "country_name") VALUES (E'AF', E'Afghanistan') ON CONFLICT (id) DO NOTHING;
 INSERT INTO "countries" ("country_code", "country_name") VALUES (E'AX', E'Åland Islands') ON CONFLICT (id) DO NOTHING;

@@ -36,7 +36,10 @@
     "react-slider": "^1.1.4",
     "react-tabulator": "^0.15.0",
     "sass": "^1.32.8",
-    "styled-components": "^5.2.3"
+    "styled-components": "^5.2.3",
+    "esbuild-loader": "^2.12.0",
+    "typescript": "^4.2.3",
+    "webpack-bundle-analyzer": "^4.4.1"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
@@ -50,10 +53,7 @@
     "@types/react": "^17.0.3",
     "@types/react-bootstrap": "^0.32.25",
     "@types/react-dom": "^17.0.2",
-    "@types/react-slider": "^1.1.1",
-    "esbuild-loader": "^2.12.0",
-    "typescript": "^4.2.3",
-    "webpack-bundle-analyzer": "^4.4.1"
+    "@types/react-slider": "^1.1.1"
   },
   "browser": {
     "jsonwebtoken": false,
