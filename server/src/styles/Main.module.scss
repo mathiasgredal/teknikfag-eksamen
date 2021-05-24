@@ -1,0 +1,35 @@
+@import "./settings/__settings";
+
+.root {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.title {
+  line-height: 1.15;
+  font-size: 2rem;
+  a {
+
+    color: $color-primary;
+    text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: underline;
+    }
+  }
+}
+
+.title,
+.description {
+  text-align: center;
+}
+
+.description {
+  line-height: 1.5;
+  font-size: 1.5rem;
+}

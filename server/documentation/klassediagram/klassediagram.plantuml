@@ -1,0 +1,190 @@
+@startuml
+title Klassediagram
+
+' class DataStore << (P,yellow) Provider>> {
+' 	+viewState: ViewState
+'   	+newSessionModal: boolean
+'   	+oldSessionModal: boolean
+'   	+data: Array<SensorData>
+'   	+session: number
+
+'   	+recordBegin: number
+'   	+lastUpdate: number
+' 	==methods==
+' 	~openNewSessionModal()
+'     ~ParseSensorData(elem)
+'     ~FetchSensorData() 
+'     ~FetchSessionList()
+' }
+
+class NextApp {
+    //imported from nextjs// 
+}
+
+class App << (M,green) React.Component>> extends NextApp  {
+    ==methods==
+    ~async getInitialProps()
+    ~componentDidMount()
+    ~render()
+}
+
+class DropItem << (M,green) React.Component>> {
+     ==props==
+    +text: string
+    +url: string
+    +path?: string
+    ==methods==
+    ~render()
+}
+
+class BarItem << (M,green) React.Component>> {
+    ==props==
+    +text: string
+    +url: string
+    +path?: string
+    ==methods==
+    ~render()
+}
+
+class TitleItem << (M,green) React.Component>> {
+     ==props==
+    +text: string
+    +url: string
+    +path?: string
+    ==methods==
+    ~render()
+}
+
+
+class Header << (M,green) React.Component>> {
+    ==props==
+    +path: string
+    +inputstyles?: any
+    +profile: IProfileStatus
+    ==state==
+    +search: string
+    ==methods==
+    ~onLogout(popupState: any)
+    ~loggedOutMenu(popupState: any)
+    ~render()
+}
+
+class Cell << (M,green) React.Component>> {
+    ==props==
+    +id: number
+    +name: string
+    +description: string
+    +price: number
+    +stock: number
+    +category: number
+    +image: string
+    +created: string
+    +last_updated: string
+    ==methods==
+    ~render()
+}
+
+class Review << (M,green) React.Component>> {
+    ==props==
+    +id: number
+    +stars: number
+    +review: string
+    +author: number
+    +created: Date
+    +product: number
+    +last_updated: Date
+    +username: string
+    ==methods==
+    ~render()
+}
+
+
+
+' class Modal  << (M,green) React.Component>> {
+'     ==props==
+'     +children
+'     +title
+'     +show
+'     +buttons
+'     ==methods==
+'     ~onHide()
+' }
+
+' class OldSessionList  << (M,green) React.Component>> {
+'     +sessions: Session[]
+'     ==props==
+'     +data: DataStore
+'     ==methods==
+'     ~onSelectSession()
+'     ~componentWillMount()
+' }
+
+' class Graph << (M,blue) React.Component>> {
+'     ==props==
+'     +title: string
+'     +graphTitle: string
+'     +yAxis: string
+'     +xAxis: string
+'     +graphRef: React.RefObject<Line>
+'     +graphs: string[]
+'     ==methods==
+'     ~onHide()
+' }
+
+' package Container {
+' 	class CanSat3D << (M,blue) React.Component>> {
+'       +roll
+'       +pitch
+'       ==props==
+'       +data: DataStore
+'       ==methods==
+'       ~calcRoll()
+'       ~calcPitch()
+' 	}
+
+'     class Kort << (M,blue) React.Component>> {
+'       ==props==
+'       +data: DataStore
+'       ==methods==
+'       ~getLocation()
+' 	}
+
+'     class Telemetry << (M,blue) React.Component>> {
+' 	}
+
+'     class Table << (M,blue) React.Component>> {
+'       -tableRef
+'       -columns
+'       ==props==
+'       +title: string
+'       +data: DataStore
+' 	}
+' }
+
+' class NavBar {
+'      //imported from bootstrap// 
+' }
+
+' skinparam nodesep 100
+' App -[hidden]> DataStore
+' DataStore |o-- App : store: DataStore
+' DataStore |o-- OldSessionList : store: DataStore
+' DataStore |o-- Container : store: DataStore
+' DataStore -[hidden]> Container
+
+' ' DataStore o.. CanSat3D : store: DataStore
+' ' DataStore o.. Kort : store: DataStore
+' ' DataStore o.. Table : store: DataStore
+
+
+' App <..> NavBar
+' App <..> Modal
+' App <..[norank]> Container
+' Modal <..> OldSessionList
+' App <..> GraphView  
+' GraphView <..> Graph
+
+
+
+
+@enduml

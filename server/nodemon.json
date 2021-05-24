@@ -1,0 +1,3 @@
+{   
+    "ignore": ["src/pages", "src/components", "src/public"] 
+}

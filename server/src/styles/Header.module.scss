@@ -1,0 +1,23 @@
+@import "./settings/__settings";
+
+.title {
+  text-decoration: inherit;
+  color:inherit !important;
+  text-transform: none;
+  display: none;
+  @media screen and (min-width: 600px) {
+    display: block;
+  }
+}
+
+.menuitem {
+  text-decoration: inherit;
+  color:inherit !important;
+  text-transform: none;
+  font-size: medium;
+  color: "inherit";
+
+  &:hover {
+    color: #d1d1d1 !important;
+  }
+}

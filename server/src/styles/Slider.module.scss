@@ -1,0 +1,64 @@
+@import "./settings/__settings";
+
+.sliderThumb {
+    font-size: 0.0em;
+    text-align: center;
+  
+    background-color: rgb(21, 127, 251);
+    color: white;
+    cursor: pointer;
+    appearance: none;
+    outline: none;
+    top: 2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    &:focus {
+      background-color: red;
+    }
+  }
+  
+  .sliderContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+  }
+  
+  .sliderTextLeft {
+      font-size: small;
+    color: white;
+    width: 16%;
+    text-overflow: ellipsis;
+    overflow:hidden;
+    text-align: left;
+    white-space: nowrap;
+    align-self: center;
+  }
+  
+  .sliderTextRight {
+    align-self: center;
+
+    font-size: small;
+    color: white;
+    width: 16%;
+    text-overflow: ellipsis;
+    overflow:hidden;
+    text-align: right;
+    white-space: nowrap;
+  }
+  
+  .sliderTrack {
+    background-color: #dee2e6;
+    height: 8px;
+    border-radius: 4px;
+    top: 6px;
+  }
+  
+  .sliderTrackBetween {
+    background-color: green;
+  }
+  
+  .slider {
+    flex: 1;
+  }

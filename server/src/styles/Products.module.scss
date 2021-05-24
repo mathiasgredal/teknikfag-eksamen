@@ -1,0 +1,71 @@
+@import "./settings/__settings";
+
+.searchText {
+  font-size: x-large;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  align-items: stretch;
+  justify-items: stretch;
+  margin-bottom: 1rem;
+  flex-direction: row;
+}
+
+.header {
+  background-color: gray;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  height: 50px;
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.divider {
+  background-color: white;
+  height: 2px;
+}
+
+.form {
+  padding: 15px;
+}
+
+.filter {
+  display: flex;
+  background-color: blue;
+  margin-right: 1rem;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  flex: 1;
+  flex-direction: column;
+}
+
+.productContainer {
+  flex: 3;
+  background-color: red;
+  border-radius: 4px;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  height: calc(100vh - 120px);
+  overflow-y: scroll;
+  padding: 1rem;
+}
+
+.productGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template: 1fr / 1fr;
+  @media (min-width: 768px) {
+    grid-template: 1fr / 1fr 1fr;
+  }
+  @media (min-width: 1408px) {
+    grid-template: 1fr / 1fr 1fr 1fr;
+  }
+}
+
+.label {
+  color: white;
+  font-weight: bold;
+}

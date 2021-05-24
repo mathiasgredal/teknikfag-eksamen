@@ -1,0 +1,5 @@
+id,name,description,price,stock,category,created,last_updated
+1,"Lego","This is a lego",12,2,1,"2001-12-31","2002-12-31"
+2,"Apple","This is an apple",2,1,2,"2003-12-31","2004-12-31"
+3,"Russian vodka","This is true vodka",2000,9001,5,"1993-12-31","2001-12-31"
+4,"Monkey","Cheap endagered monkeys",5,4,7,"1993-12-31","2001-12-31"
